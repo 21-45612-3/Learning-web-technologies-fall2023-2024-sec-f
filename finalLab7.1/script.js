@@ -47,5 +47,17 @@ function abc(){
     } else {
         document.getElementById('h1').innerHTML = username;
 
-    }
+    }}
+
+
+function validemail(){
+        let useremail = document.getElementById('useremail').value;
+        
+        if(useremail == ''  || !useremail.includes("@")){
+            document.getElementById('h1').innerHTML = 'not valid'; 
+       } else{
+    document.getElementById('h1').innerHTML = useremail;
+
+         }
+
 }
