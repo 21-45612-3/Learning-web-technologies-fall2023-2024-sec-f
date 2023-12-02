@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>final</title>
+</head>
+<body>
+  
+   
+   
+<button id="b">GET Users</button>
+    <h1>Users</h1>
+    <div id="users"></div>
+
+
+    <form id="registrationForm" action="users.php" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" >
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" >
+
+        <label for="contact">Contact:</label>
+        <input type="text" id="contact" name="contact" >
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" >
+
+        <button type="submit" onclick="registerEmployee()">Register</button>
+        
+    </form>
+
+
+    <script>
+ function validateForm() {
+            var name = document.getElementById('name').value;
+            var username = document.getElementById('username').value;
+            var contact = document.getElementById('contact').value;
+            var password = document.getElementById('password').value;
+
+            if (name === '' || username === '' || contact === '' || password === '') {
+                alert('All fields are required. Please fill them out.');
+            } else {
+                alert('Registration successful!');
+        
+            }
+        }
+
+document.getElementById('b').addEventListener('click',ajax3);
+
+
+function ajax3(){
+var xhr = new XMLHttpRequest();
+xhr.open('GET','users.php',true);
+xhr.onreadystatechange = function(){
+if(this.readyState == 4 && this.status == 200){
+var users = JSON.parse(this.responseText);
+var output = '';
+
+for (var i in users){
+
+    output += '<ul>' +
+        '<li> ID: ' +users[i].id+'</li>'+
+        '<li> NAME: ' +users[i].employee_name+'</li>'+
+        '<li> username: ' +users[i].username+'</li>'+
+        '<li> contact: ' +users[i].contact_no+'</li>'+
+
+       
+        '</ul>'
+}
+document.getElementById('users').innerHTML = output;
+}
+
+}
+xhr.send();
+}
+
+
+
+    </script>
+</body>
+</html>
