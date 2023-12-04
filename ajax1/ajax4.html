@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Ajax GET FORM</h1>
+    <button id="b">bbbb</button>
+<form id="getForm">
+<input type="text" name="name" id="n">
+<input type="submit" value="submit">
+</form>
+
+<h1> GET FORM</h1>
+<form method="get" action="proccess.php">
+    <input type="text" name="name">
+    <input type="submit" value="submit">
+    </form>
+
+    <h1> POST FORM</h1>
+<form method="post" action="proccess.php">
+    <input type="text" name="name">
+    <input type="submit" value="submit">
+    </form>
+
+    <h1>Ajax POST FORM</h1>
+  
+<form id="postForm">
+<input type="text" name="name" id="m">
+<input type="submit" value="submit">
+</form>
+    
+    <script>
+        
+
+        document.getElementById('b').addEventListener('click',loadn);
+document.getElementById('getForm').addEventListener('submit', loadn);
+document.getElementById('postForm').addEventListener('submit', postn);
+
+        function loadn(e){
+            e.preventDefault();
+            var name = document.getElementById('n');
+            var x = new XMLHttpRequest();
+            x.open('GET','proccess.php?name='+name,true);
+            x.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+
+                    console.log(this.responseText);
+                }
+            }
+            x.send();
+        }
+
+
+        function postn(e){
+            e.preventDefault();
+            var name = document.getElementById('m');
+            var x = new XMLHttpRequest();
+            var newname = 'name ='+name;
+            x.open('POST','proccess.php',true);
+            x.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            x.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+
+                    console.log(this.responseText);
+                }
+            }
+            x.send(newname);
+        }
+    </script>
+</body>
+</html>

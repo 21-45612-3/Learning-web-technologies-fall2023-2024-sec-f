@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Ajax5</title>
+</head>
+<body>
+  
+   
+   
+<button id="b">GET Users</button>
+    <h1>Users</h1>
+    <div id="users"></div>
+    <script>
+
+
+document.getElementById('b').addEventListener('click',ajax3);
+
+
+function ajax3(){
+var xhr = new XMLHttpRequest();
+xhr.open('GET','users.php',true);
+xhr.onreadystatechange = function(){
+if(this.readyState == 4 && this.status == 200){
+var users = JSON.parse(this.responseText);
+var output = '';
+
+for (var i in users){
+
+    output += '<ul>' +
+        '<li> ID: ' +users[i].id+'</li>'+
+        '<li> NAME: ' +users[i].name+'</li>'+
+        '<li> email: ' +users[i].id+'</li>'+
+        '</ul>'
+}
+document.getElementById('users').innerHTML = output;
+}
+
+}
+xhr.send();
+}
+
+
+
+    </script>
+</body>
+</html>

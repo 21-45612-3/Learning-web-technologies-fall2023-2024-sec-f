@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax1</title>
+</head>
+<body>
+    <button id="b1"> Get Text File </button>
+    <div id="text"></div>
+    <script>
+
+        document.getElementById('b1').addEventListener('click' , ajax1);
+
+
+        function ajax1(){
+
+          var xhr = new XMLHttpRequest();
+          xhr.open('GET','txt.txt',true);
+          xhr.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status == 200){
+document.getElementById('text').innerHTML = this.response;
+            }
+          }
+          xhr.send();
+        }
+    </script>
+</body>
+</html>
