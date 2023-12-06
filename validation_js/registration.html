@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>User Registration</title>
+</head>
+<body>
+  <fieldset>
+    <legend>User Registration</legend>
+  
+    <form id="registrationForm" onsubmit="return validateRegistration()">
+      ID: <input type="text" id="userId"><br>
+      Username: <input type="text" id="username"><br>
+      Password: <input type="password" id="password"><br>
+      Confirm Password: <input type="password" id="confirmPassword"><br>
+      Email: <input type="text" id="email"><br>
+      Role: 
+      <select id="role">
+        <option value="user">User</option>
+        <option value="admin">Admin</option>
+      </select><br>
+
+      <button type="submit">Register</button>
+    </form>
+  </fieldset>
+
+  <script>
+    function validateRegistration() {
+      var userId = document.getElementById('userId').value;
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('password').value;
+      var confirmPassword = document.getElementById('confirmPassword').value;
+      var email = document.getElementById('email').value;
+      var role = document.getElementById('role').value;
+
+      if (!userId || !username || !password || !confirmPassword || !email || !role) {
+        alert('Please fill in all fields.');
+        return false;
+      }
+
+      if (password.length < 6) {
+        alert('Password must be 6 characters or more.');
+        return false;
+      }
+
+      if (password !== confirmPassword) {
+        alert('Passwords do not match.');
+        return false;
+      }
+
+      alert('Registration successful! Redirecting to Login.');
+      window.location = 'login.html';
+
+      return true;
+    }
+  </script>
+
+</body>
+</html>

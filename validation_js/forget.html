@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Change Password</title>
+</head>
+<body>
+
+  <fieldset>
+    <legend>Change Password</legend>
+    <form id="changePasswordForm" onsubmit="return validateChangePassword()">
+      Current Password: <input type="password" id="currentPassword"><br>
+      New Password: <input type="password" id="newPassword"><br>
+      Confirm New Password: <input type="password" id="confirmNewPassword"><br>
+
+      <button type="submit">Change Password</button>
+    </form>
+  </fieldset>
+
+  <script>
+    function validateChangePassword() {
+      var currentPassword = document.getElementById('currentPassword').value;
+      var newPassword = document.getElementById('newPassword').value;
+      var confirmNewPassword = document.getElementById('confirmNewPassword').value;
+
+      if (!currentPassword || !newPassword || !confirmNewPassword) {
+        alert('Please fill in all fields.');
+        return false;
+      }
+
+      if (newPassword.length < 6) {
+        alert('New password must be 6 characters or more.');
+        return false;
+      }
+
+      if (newPassword !== confirmNewPassword) {
+        alert('New passwords do not match.');
+        return false;
+      }
+
+     
+
+      alert('Password changed successfully!');
+     
+
+      return true;
+    }
+  </script>
+
+</body>
+</html>

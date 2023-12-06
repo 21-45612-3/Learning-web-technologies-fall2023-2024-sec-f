@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>User Login</title>
+</head>
+<body>
+
+  <fieldset>
+    <legend>Login</legend>
+    <form id="loginForm" onsubmit="return validateLogin()">
+      <input type="text" id="loginUsername" ><br>
+      <input type="password" id="loginPassword" ><br>
+      <label>
+        <input type="checkbox" id="rememberMe"> Remember Me
+      </label> <br>
+      <button type="submit">Login</button>
+    </form>
+    <p><a href="registration.html">Register</a></p>
+  </fieldset>
+
+  <script>
+    function validateLogin() {
+      var loginUsername = document.getElementById('loginUsername').value;
+      var loginPassword = document.getElementById('loginPassword').value;
+      var rememberMe = document.getElementById('rememberMe').checked;
+
+      if (!loginUsername || !loginPassword) {
+        alert('Please fill in all fields.');
+        return false;
+      }
+
+      
+      if (loginUsername === "bob" && loginPassword === "1234") {
+  console.log('Redirecting to bob.html');
+  window.location.href = 'bob.html';
+} else {
+  console.log('Redirecting to anne.html');
+  window.location.href = 'anne.html';
+}
+
+
+      return true;
+    }
+  </script>
+
+</body>
+</html>
