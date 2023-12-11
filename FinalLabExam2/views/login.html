@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Document</title>
+    <script src="check.js"></script>
+</head>
+<body>
+    <form method="post" action="../controllers/logincheck.php" onblur="login()">
+    <input type="text" name="name" id="sname" placeholder="Enter your name: "><br>
+    <span id="snameerror" ></span>
+    <input type="password" name="password" id="spw" placeholder="Enter your password: ">
+    <span id="spwerror" ></span><br>
+    <input type="text" name="role" id="srole" placeholder="seller or buyer? ">
+        <span id="sroleerror" ></span><br>
+    <input type="submit" name="submit" >
+</form>
+</body>
+</html>

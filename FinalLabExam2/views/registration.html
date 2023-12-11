@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Document</title>
+    <script src="check.js"></script>
+</head>
+<body>
+    <form method="post" action="../controllers/regcheck.php" onkeyup="regval()">
+        <input type="text" name="name" id="name" placeholder="Enter your name: ">
+        <span id="nameerror" ></span><br>
+        <input type="password" name="password" id="password" placeholder="Enter your password: ">
+        <span id="pwderror" ></span><br>
+        <input type="email" name="email" id="email" placeholder="Enter your email: ">
+        <span id="emailerror" ></span>
+        <input type="text" name="role" id="role" placeholder="seller or buyer? ">
+        <span id="roleerror" ></span><br>
+        <input type="submit" name="submit" >
+    </form>
+</body>
+</html>
